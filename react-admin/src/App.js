@@ -1,6 +1,11 @@
 import { ColorModeContext, useMode } from "./theme";
 import { CssBaseline, ThemeProvider } from "@mui/material";
-import { Routes, Route } from "react-router-dom";
+import {
+  Routes,
+  Route,
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
 import TopBar from "./scenes/global/TopBar";
 import Sidebar from "./scenes/global/Sidebar";
 import Dashboard from "./scenes/dashboard";
@@ -18,6 +23,34 @@ import Calendar from "./scenes/calendar";
 function App() {
   const [theme, colorMode] = useMode();
 
+  const routes = createBrowserRouter([
+    {
+      path: "/",
+      element: <Dashboard />,
+    },
+    {
+      path: "/team",
+      element: <Team />,
+    },
+    {
+      path: "/contacts",
+      element: <Contacts />,
+    },
+    {
+      path: "/invoices",
+      element: <Invoices />,
+    },
+    {
+      path: "/form",
+      element: <Form />,
+    },
+    { path: "/line", element: <Line /> },
+    { path: "/pie", element: <Pie /> },
+    { path: "/faq", element: <FAQ /> },
+    { path: "/geography", element: <Geography /> },
+    { path: "/calendar", element: <Calendar /> },
+  ]);
+
   return (
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>
@@ -25,7 +58,8 @@ function App() {
         <div className="app">
           <main className="content">
             <TopBar />
-            <Routes>
+            <RouterProvider router={routes}></RouterProvider>
+            {/* <Routes>
               <Route path="/" element={<Dashboard />} />
               <Route path="/team" element={<Team />} />
               <Route path="/contacts" element={<Contacts />} />
@@ -36,7 +70,7 @@ function App() {
               <Route path="/faq" element={<FAQ />} />
               <Route path="/geography" element={<Geography />} />
               <Route path="/calendar" element={<Calendar />} />
-            </Routes>
+            </Routes> */}
           </main>
         </div>
       </ThemeProvider>
