@@ -14,7 +14,7 @@ const TopBar = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const colorMode = useContext(ColorModeContext);
-
+  console.log("theme :", colors?.palette?.mode);
   return (
     <Box display="flex" justifyContent="space-between" p={2}>
       {/* SEARVCH BAR */}
@@ -28,7 +28,28 @@ const TopBar = () => {
           <SearchIcon />
         </IconButton>
       </Box>
-      <IconButton></IconButton>
+      {/* ICONS */}
+      <Box display="flex">
+        <IconButton onClick={colorMode.toggleColorMode}>
+          {theme.palette.mode === "dark" ? (
+            <DarkModeOutlinedIcon />
+          ) : (
+            <LightModeOutlinedIcon />
+          )}
+        </IconButton>
+        <IconButton>
+          <NotificationsModeOutlinedIcon />
+        </IconButton>
+        <IconButton>
+          <SettingsModeOutlinedIcon />
+        </IconButton>
+        <IconButton>
+          <PersonModeOutlinedIcon />
+        </IconButton>
+        <IconButton>
+          <SearchModeOutlinedIcon />
+        </IconButton>
+      </Box>
     </Box>
   );
 };
