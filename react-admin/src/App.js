@@ -15,6 +15,9 @@ import Invoices from "./scenes/invoices";
 import Forms from "./scenes/forms";
 import Calendar from "./scenes/calendar";
 import FAQ from "./scenes/faq";
+import BarChart from "./components/BarChart";
+import Bar from "./scenes/bar";
+import Pie from "./scenes/pie";
 // import Team from "./scenes/team";
 // import Invoices from "./scenes/invoices";
 // import Contacts from "./scenes/contacts";
@@ -74,6 +77,8 @@ function App() {
               <Route path="/form" element={<Forms />} />
               <Route path="/calendar" element={<Calendar />} />
               <Route path="/faq" element={<FAQ />} />
+              <Route path="/bar" element={<Bar />} />
+              <Route path="/pie" element={<Pie />} />
               {/*  <Route path="/line" element={<Line />} />
               <Route path="/pie" element={<Pie />} />
               
